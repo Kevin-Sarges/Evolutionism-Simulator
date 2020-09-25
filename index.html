@@ -1,12 +1,53 @@
   
 <html>
     <head>
-        <!-- <link rel="stylesheet" href="estilos/estiloGrafico.css"> -->
+        <!-- <link rel="stylesheet" href="estilos/estiloGrafico.css"> --> 
     </head>
     <body>
+        <section>
+            <form>
+                <div class="input-container">
+                    <label for="number-of-simulated-days">Days</label>
+                    <input 
+                        type="number" 
+                        min="0"
+                        value="100"
+                        name="number-of-simulated-days" 
+                        id="number-of-simulated-days">
+                </div>
+                <div class="input-container">
+                    <label for="population-base-energy">Indiviual Energy</label>
+                    <input 
+                        type="number" 
+                        min="0"
+                        value="300"
+                        name="population-base-energy" 
+                        id="population-base-energy">
+                </div>
+                <div class="input-container">
+                    <label for="initial-individual-number">Initial individuals number</label>
+                    <input 
+                        type="number" 
+                        min="0"
+                        value="10" 
+                        name="initial-individual-number" 
+                        id="initial-individual-number">
+                </div>
+                <div class="input-container">
+                    <label for="amount-of-food">Total amonut of food</label>
+                    <input 
+                        type="number" 
+                        min="0"
+                        value="100" 
+                        name="amount-of-food" 
+                        id="amount-of-food">
+                </div>
+
+                <button type="submit" id="simulate">Simulate</button>
+            </form>
+        </section>
+        
         <canvas id="myCanvas" width="500" height="500"></canvas>
-
-
     </body>
 
     <script src="./src/models/Render.js"></script>
