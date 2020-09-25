@@ -94,7 +94,7 @@ class Individual{
         
         this.move(direction);
 
-        if(this.getDistancia(position) <= this.speed){
+        if(this.getDistancia(position) < this.rayOfVision){
             this.hasSearchPath = false;
         }
     }
@@ -184,7 +184,7 @@ class Individual{
     }
 
     lossEnergy(){
-        this.atualEnergy = this.atualEnergy - this.speed;
+        this.atualEnergy = this.atualEnergy - this.speed * 2;
     }
 
     generateMutation(){
@@ -197,8 +197,8 @@ class Individual{
         let fatorDeMutacao = Math.random() * 100;
 
         if(fatorDeMutacao < (this.mutationChance - 1)){
-            this.color = addHexColor(this.color, '5505aa');
-            return this.speed + 10;
+            this.color = addHexColor(this.color, '0f05aa');
+            return this.speed + 0.2;
         } 
         // else if(fatorDeMutacao < (this.mutationChance * 2 - 1)){
         //     if(this.speed - 1 > 0){
@@ -221,7 +221,7 @@ class Individual{
     }
 
     sleep(individualList){
-        this.generateMutation();
+        this.speed = this.generateMutation();
         this.reproduce(individualList);
         this.atualEnergy = this.maxEnergy;
         this.hasSearchPath = false;
