@@ -1,10 +1,11 @@
 class Simulation {
   
-    constructor(numberOfSimulatedDays, populationBaseEnergy, initialIndividualNumber, amountOfFood) {
+    constructor(numberOfSimulatedDays, populationBaseEnergy, initialIndividualNumber, amountOfFood, delayTimeInMilisec) {
         this.numberOfSimulatedDays = numberOfSimulatedDays;
         this.populationBaseEnergy = populationBaseEnergy;
         this.initialIndividualNumber = initialIndividualNumber;
         this.amountOfFood = amountOfFood;
+        this.delayTimeInMilisec = delayTimeInMilisec;
 
         this.individualList = [];
         this.foodList = [];
@@ -14,6 +15,7 @@ class Simulation {
         this.totalIndividualsPerGeneration = [];
 
         this.render = new Render();
+
     }
 
     getAverageSpeedPerGeneration(){
@@ -75,7 +77,7 @@ class Simulation {
             for(let j = 0; j < individualList.length; j++){
                 individualList[j].hunt(foodList); 
             }            
-            await this.delay(10);
+            await this.delay(this.delayTimeInMilisec);
         }
     }
 
