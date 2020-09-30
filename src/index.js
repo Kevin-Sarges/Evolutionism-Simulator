@@ -4,6 +4,7 @@ let numberOfSimulatedDaysInput = document.getElementById('number-of-simulated-da
 let populationBaseEnergyInput = document.getElementById('population-base-energy');
 let initialIndividualNumberInput = document.getElementById('initial-individual-number');
 let amountOfFoodInput = document.getElementById('amount-of-food');
+let speedInput = document.getElementById('speed');
 
 button.addEventListener('click', simulate);
 
@@ -15,7 +16,11 @@ function simulate(e){
     let initialIndividualNumber = initialIndividualNumberInput.value;
     let amountOfFood = amountOfFoodInput.value;
 
-    let simulation = new Simulation(numberOfSimulatedDays, populationBaseEnergy, initialIndividualNumber, amountOfFood);
+    let speed = speedInput.value; 
+
+    let delayTimeInMilisec = 10 / speed
+
+    let simulation = new Simulation(numberOfSimulatedDays, populationBaseEnergy, initialIndividualNumber, amountOfFood, delayTimeInMilisec);
 
     button.disabled = true;
 
