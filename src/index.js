@@ -22,9 +22,9 @@ function simulate(e){
 
     let simulation = new Simulation(numberOfSimulatedDays, populationBaseEnergy, initialIndividualNumber, amountOfFood, delayTimeInMilisec);
 
-    button.disabled = true;
+    button.classList.toggle('escondido');
 
     simulation.simulate().then(()=>{
-        button.disabled = false;
+        // button.classList.toggle('escondido');
     });
 }
