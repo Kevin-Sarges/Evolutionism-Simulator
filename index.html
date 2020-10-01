@@ -1,62 +1,64 @@
   
 <html>
     <head>
-        <!-- <link rel="stylesheet" href="estilos/estiloGrafico.css"> --> 
+        <link rel="stylesheet" href="reset.css"> 
+        <link rel="stylesheet" href="estilos.css"> 
     </head>
     <body>
         <section>
             <form>
                 <div class="input-container">
-                    <label for="number-of-simulated-days">Days</label>
+                    <label for="number-of-simulated-days">Days:</label>
                     <input 
                         type="number" 
                         min="0"
                         value="100"
+                        max = "1000"
                         name="number-of-simulated-days" 
                         id="number-of-simulated-days">
                 </div>
                 <div class="input-container">
-                    <label for="population-base-energy">Indiviual Energy</label>
+                    <label for="population-base-energy">Indiviual Energy:</label>
                     <input 
                         type="number" 
                         min="0"
                         value="300"
+                        max = "1000"
                         name="population-base-energy" 
                         id="population-base-energy">
                 </div>
                 <div class="input-container">
-                    <label for="initial-individual-number">Initial individuals number</label>
+                    <label for="initial-individual-number">Initial individuals number:</label>
                     <input 
                         type="number" 
                         min="0"
                         value="10" 
+                        max = "500"
                         name="initial-individual-number" 
                         id="initial-individual-number">
                 </div>
                 <div class="input-container">
-                    <label for="amount-of-food">Total amonut of food</label>
+                    <label for="amount-of-food">Total amonut of food:</label>
                     <input 
                         type="number" 
                         min="0"
                         value="100" 
+                        max = "500"
                         name="amount-of-food" 
                         id="amount-of-food">
                 </div>
-
-            </div>
-            <div class="input-container">
-                <label for="speed">Simulation speed</label>
-                <input 
-                    type="number" 
-                    min="0"
-                    max = "100"
-                    value="20" 
-                    name="speed" 
-                    id="speed">
-            </div>
-
-                <button type="submit" id="simulate">Simulate</button>
+                <div class="input-container">
+                    <label for="speed">Simulation speed:</label>
+                    <input 
+                        type="number" 
+                        min="0"
+                        max = "100"
+                        value="20" 
+                        name="speed" 
+                        id="speed">
+                </div>
             </form>
+            <button class="simulate-btn" type="submit" id="simulate">Simulate</button>
         </section>
         
         <canvas id="myCanvas" width="500" height="500"></canvas>
