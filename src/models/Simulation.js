@@ -1,11 +1,12 @@
 class Simulation {
   
-    constructor(numberOfSimulatedDays, populationBaseEnergy, initialIndividualNumber, amountOfFood, delayTimeInMilisec) {
+    constructor(numberOfSimulatedDays, populationBaseEnergy, initialIndividualNumber, amountOfFood, delayTimeInMilisec, mutationChance) {
         this.numberOfSimulatedDays = numberOfSimulatedDays;
         this.populationBaseEnergy = populationBaseEnergy;
         this.initialIndividualNumber = initialIndividualNumber;
         this.amountOfFood = amountOfFood;
         this.delayTimeInMilisec = delayTimeInMilisec;
+        this.mutationChance = mutationChance;
 
         this.individualList = [];
         this.foodList = [];
@@ -15,7 +16,7 @@ class Simulation {
         this.totalIndividualsPerGeneration = [];
 
         this.render = new Render();
-
+        this.plotter = new Plotter(numberOfSimulatedDays);
     }
 
     getAverageSpeedPerGeneration(){
@@ -32,6 +33,9 @@ class Simulation {
 
         for(let i = 0; i < this.numberOfSimulatedDays; i++){
             await this.populationSeekFood(this.individualList, this.foodList);
+            
+            this.plotter.plot(this.foodList, this.individualList, i);
+
             this.individualList = this.endOfTheDay(this.individualList, this.foodList, i);
             await this.delay(500);
         }
@@ -61,7 +65,7 @@ class Simulation {
                 y: Math.floor(Math.random() * 500)
             }
         
-            individualList.push(new Individual(this.populationBaseEnergy, 1, 50, individualPosition, 5, '000000'));
+            individualList.push(new Individual(this.populationBaseEnergy, 1, 50, individualPosition, this.mutationChance, '000000'));
         }
         this.render.drawIndividualsList(individualList);
         return individualList;
