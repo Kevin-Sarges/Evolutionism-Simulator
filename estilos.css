@@ -61,3 +61,7 @@ form .input-container input{
     background-color: black;
     color: cadetblue;
 }
+
+canvas{
+    border: 1px solid black;
+}
