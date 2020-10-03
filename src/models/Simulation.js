@@ -34,7 +34,8 @@ class Simulation {
         for(let i = 0; i < this.numberOfSimulatedDays; i++){
             await this.populationSeekFood(this.individualList, this.foodList);
             
-            this.plotter.plot(this.foodList, this.individualList, i);
+            this.plotter.plot(i, this.foodList.length, this.foodList.length, 'green');
+            this.plotter.plot(i, this.individualList.length, this.foodList.length, 'black');
 
             this.individualList = this.endOfTheDay(this.individualList, this.foodList, i);
             await this.delay(500);

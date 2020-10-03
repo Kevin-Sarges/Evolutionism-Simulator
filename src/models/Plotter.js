@@ -6,18 +6,10 @@ class Plotter{
         this.numberOfSimulatedDays = numberOfSimulatedDays;
     }
 
-    plot(listOfFood, listOfIndividuals, day){
-        let foodQtd = listOfFood.length;
-        let individualsQtd = listOfIndividuals.length;
-
+    plot(x, y, yScale, color){
         this.context.beginPath(); 
-        this.context.fillStyle = 'black';
-        this.context.arc((this.canvas.width/this.numberOfSimulatedDays) * day, this.canvas.width - (this.canvas.height/(foodQtd * 2)) * individualsQtd, 2, 0, 2 * Math.PI);
-        this.context.fill();
-
-        this.context.beginPath(); 
-        this.context.fillStyle = 'green';
-        this.context.arc((this.canvas.width/this.numberOfSimulatedDays) * day, this.canvas.width - (this.canvas.height/(foodQtd * 2)) * foodQtd, 2, 0, 2 * Math.PI);
+        this.context.fillStyle = color;
+        this.context.arc((this.canvas.width/this.numberOfSimulatedDays) * x, this.canvas.width - (this.canvas.height/(yScale * 2)) * y, 2, 0, 2 * Math.PI);
         this.context.fill();
     }
 }
