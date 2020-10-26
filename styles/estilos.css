@@ -65,3 +65,10 @@ form .input-container input{
 canvas{
     border: 1px solid black;
 }
+
+.simulation{
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
