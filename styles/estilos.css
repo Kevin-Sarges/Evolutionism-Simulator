@@ -1,3 +1,10 @@
+#cabecalho{
+    margin: 10px;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+}
+
 .escondido{
     display: none;
 }
@@ -67,7 +74,7 @@ canvas{
 }
 
 .simulation{
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     align-items: center;
     justify-content: space-around;
